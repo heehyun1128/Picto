@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetHeader, SheetDescription , SheetTitle, SheetT
 import { navLinks } from "@/constants"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 const MobileNav = () => {
     const pathname = usePathname()
@@ -19,8 +20,8 @@ const MobileNav = () => {
       />
     </Link>
     <nav className="flex gap-2">
-        {/* {/* <SignedIn>
-            <UserButton afterSignOutUrl/> */}
+       <SignedIn>
+            <UserButton afterSignOutUrl="/"/> 
         <Sheet>
         <SheetTrigger>
             <Image 
@@ -60,15 +61,15 @@ const MobileNav = () => {
            </>
         </SheetContent>
         </Sheet>
-        {/* </SignedIn> */} 
+        </SignedIn> 
 
-         {/* <SignedOut> */}
+         <SignedOut>
          <Button asChild className='button bg-purple-gradient bg-cover'>
             <Link href="/sign-in">
               Sign In
             </Link>
            </Button>
-           {/* </SignedOut> */}
+           </SignedOut>
 
     </nav>
    </header>

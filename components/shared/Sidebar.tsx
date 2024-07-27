@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { navLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -15,7 +16,7 @@ const Sidebar = () => {
         </Link>
 
         <nav className="sidebar-nav">
-          {/* <SignedIn> */}
+          <SignedIn>
           <ul className="sidebar-nav_elements">
             {navLinks.slice(0,6).map((link) => {
               const isActive = pathname === link.route;
@@ -64,15 +65,15 @@ const Sidebar = () => {
             </ul>
 
 
-          {/* </SignedIn> */}
+          </SignedIn>
 
-           {/* <SignedOut> */}
+           <SignedOut>
            <Button asChild className='button bg-purple-gradient bg-cover'>
             <Link href="/sign-in">
               Sign In
             </Link>
            </Button>
-           {/* </SignedOut> */}
+           </SignedOut>
 
 
 
