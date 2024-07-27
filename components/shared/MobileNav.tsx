@@ -20,8 +20,8 @@ const MobileNav = () => {
       />
     </Link>
     <nav className="flex gap-2">
-       <SignedIn>
-            <UserButton afterSignOutUrl="/"/> 
+        <SignedIn>
+            <UserButton afterSignOutUrl="/" /> 
         <Sheet>
         <SheetTrigger>
             <Image 
@@ -61,7 +61,7 @@ const MobileNav = () => {
            </>
         </SheetContent>
         </Sheet>
-        </SignedIn> 
+        </SignedIn>
 
          <SignedOut>
          <Button asChild className='button bg-purple-gradient bg-cover text-dark-700 hover:text-white'>
@@ -69,7 +69,7 @@ const MobileNav = () => {
               Sign In
             </Link>
            </Button>
-           </SignedOut>
+          </SignedOut>
 
     </nav>
    </header>

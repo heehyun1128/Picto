@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { navLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -60,9 +61,22 @@ const Sidebar = () => {
               )
             })}
             
-              {/* UserButton : <li className="flex-center cursor-pointer gap-2 p-4">
-               <UserButton /> 
-            </li> */}
+      
+          <li className="flex-center cursor-pointer gap-2 p-4">
+            <UserButton 
+              afterSignOutUrl="/" 
+              appearance={{
+                elements: {
+                  avatarBox: "h-10 w-10",
+                  userButtonAvatarBox: "h-10 w-10"
+                },
+                variables: {
+                  colorPrimary: "#624cf5"
+                }
+              }}
+              showName={true}
+            />
+          </li>
             </ul>
 
 
