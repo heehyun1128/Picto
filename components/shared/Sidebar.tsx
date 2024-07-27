@@ -11,13 +11,13 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
-            <Image src="/assets/images/logo-text.svg" alt="logo" width={180} height={28} />
+            <Image src="/assets/images/logo.svg" alt="logo" width={180} height={28} />
         </Link>
 
         <nav className="sidebar-nav">
           {/* <SignedIn> */}
           <ul className="sidebar-nav_elements">
-            {navLinks.slice(0,6).map((link) => {
+            {navLinks.slice(0,3).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
@@ -39,7 +39,7 @@ const Sidebar = () => {
           </ul>
 
             <ul className="sidebar-nav_elements">
-            {navLinks.slice(6).map((link) => {
+            {navLinks.slice(3).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
@@ -58,16 +58,17 @@ const Sidebar = () => {
                 </li>
               )
             })}
-              <li className="flex-center cursor-pointer gap-2 p-4">
-              {/* <UserButton /> : User Button from Clerk */}
-            </li>
+            
+              {/* UserButton : <li className="flex-center cursor-pointer gap-2 p-4">
+               <UserButton /> 
+            </li> */}
             </ul>
 
 
           {/* </SignedIn> */}
 
            {/* <SignedOut> */}
-           <Button asChild className='button bg-purple-gradient bg-cover'>
+           <Button asChild className='button bg-purple-gradient bg-cover text-dark-700 hover:text-white'>
             <Link href="/sign-in">
               Sign In
             </Link>

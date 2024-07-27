@@ -14,21 +14,21 @@ export const navLinks = [
       route: "/transformations/add/fill",
       icon: "/assets/icons/stars.svg",
     },
-    {
-      label: "Object Remove",
-      route: "/transformations/add/remove",
-      icon: "/assets/icons/scan.svg",
-    },
-    {
-      label: "Object Recolor",
-      route: "/transformations/add/recolor",
-      icon: "/assets/icons/filter.svg",
-    },
-    {
-      label: "Background Remove",
-      route: "/transformations/add/removeBackground",
-      icon: "/assets/icons/camera.svg",
-    },
+    // {
+    //   label: "Object Remove",
+    //   route: "/transformations/add/remove",
+    //   icon: "/assets/icons/scan.svg",
+    // },
+    // {
+    //   label: "Object Recolor",
+    //   route: "/transformations/add/recolor",
+    //   icon: "/assets/icons/filter.svg",
+    // },
+    // {
+    //   label: "Background Remove",
+    //   route: "/transformations/add/removeBackground",
+    //   icon: "/assets/icons/camera.svg",
+    // },
     {
       label: "Profile",
       route: "/profile",
@@ -70,7 +70,7 @@ export const navLinks = [
     {
       _id: 2,
       name: "Pro Package",
-      icon: "/assets/icons/free-plan.svg",
+      icon: "/assets/icons/pro-plan.svg",
       price: 40,
       credits: 120,
       inclusions: [
@@ -94,8 +94,8 @@ export const navLinks = [
     },
     {
       _id: 3,
-      name: "Premium Package",
-      icon: "/assets/icons/free-plan.svg",
+      name: "Picto Lover",
+      icon: "/assets/icons/picto-plan.svg",
       price: 199,
       credits: 2000,
       inclusions: [
