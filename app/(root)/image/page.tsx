@@ -15,7 +15,6 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-
 import {
   ChatCompletionMessageParam,
   ChatCompletionContentPart,
@@ -87,15 +86,19 @@ const ImagePage = () => {
   return (
     // add header for chat page
     <div>
-     
       {/* form/input fields */}
       <div className="px-4 lg:px-8">
-        <div>
+        <div className="flex justify-center mb-10">
+          <h1 className="text-4xl">Picto AI Image Generator</h1>
+        </div>
+        <div style={{height:"75vh"}}  className="flex justify-between align-middle">
+          {/* <div> */}
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="border-slate-500 border rounded-lg w-full p-5 px-4 md:px-6 focus-within:shadow-sm "
             >
+              <p className="font-semibold text-xl mb-3 mt-5">Image Information</p>
               <FormField
                 name="prompt"
                 render={({ field }) => (
@@ -103,14 +106,15 @@ const ImagePage = () => {
                     <FormControl className="m-0 p-0">
                       <Input
                         disabled={isLoading}
-                        placeholder="Start Image Generation Here..."
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-2"
+                        placeholder="Describe the image to generate..."
+                        className="border-1 outline-dashed focus-visible:ring-0 focus-visible:ring-transparent p-2"
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
+              <p className="font-semibold text-xl mb-3 mt-5">Select Number of Pictures</p>
               <FormField
                 control={form.control}
                 name="amount"
@@ -138,64 +142,77 @@ const ImagePage = () => {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="resolution"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-2 mb-1">
-                    <Select
-                      disabled={isLoading}
-                      value={field.value}
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {resolutionOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormItem>
-                )}
-              />
-              <Button
-                disabled={isLoading}
-                className="col-span-12 lg:col-span-2 bg-slate-500"
-              >
+              <div>
+                <p className="font-semibold text-xl mb-3 mt-5">Resolution</p>
+                <FormField
+                  control={form.control}
+                  name="resolution"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-2 mb-1">
+                      <Select
+                        disabled={isLoading}
+                        value={field.value}
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue defaultValue={field.value} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {resolutionOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <Button style={{backgroundColor:"#4EF4D8"}} disabled={isLoading} className=" w-full  mt-5">
                 Generate
               </Button>
             </form>
           </Form>
-        </div>
-        <div className="space-y-4 mt-4">
-          {isLoading && (
-            <div className="p-8 flex items-center w-full justify-center bg-muted">
-              loading...
-            </div>
-          )}
-        
-      
-          <div>
-            {images.map((src) => (
-              <Card key={src} className="rounded-lg overflow-hidden">
-                <div className="relative aspect-square">
-                  <Image src={src} fill alt="Image" />
+          {/* </div> */}
+          <div className="ml-6">
+            {isLoading && (
+              <div className="flex items-center w-full justify-center fixed top-0 left-0 right-0 bottom-0 z-50">
+                loading...
+              </div>
+            )}
+
+            <div className="min-w-60 h-full">
+              {images.length ? (
+                images.map((src) => (
+                  <Card
+                    key={src}
+                    className="rounded-lg overflow-hidden w-full mb-4"
+                  >
+                    <div className="relative aspect-square">
+                      <Image src={src} fill alt="Image" />
+                    </div>
+                    <CardFooter className="p-2">
+                      <Button
+                        variant="secondary"
+                        className="w-full"
+                        onClick={() => window.open(src)}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))
+              ) : (
+                <div style={{border:"4px dotted #4EF4D8", borderRadius:"1rem"}} className="w-full h-full border-dotted border-2  flex items-center justify-center">
+                  <span>No images available</span>
                 </div>
-                <CardFooter className="p-2">
-                  <Button variant="secondary" className="w-full" onClick={()=>window.open(src)}>
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -16,11 +16,11 @@ export const navLinks = [
     //   route: "/profile",
     //   icon: "/assets/icons/profile.svg",
     // },
-    {
-      label: "Upgrade Plan",
-      route: "/credits",
-      icon: "/assets/icons/bag.svg",
-    },
+    // {
+    //   label: "Upgrade Plan",
+    //   route: "/credits",
+    //   icon: "/assets/icons/bag.svg",
+    // },
   ];
   
   export const plans = [
