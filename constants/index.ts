@@ -4,22 +4,18 @@ export const navLinks = [
       route: "/",
       icon: "/assets/icons/home.svg",
     },
+   
     {
-      label: "Image Restore",
-      route: "/transformations/add/restore",
-      icon: "/assets/icons/image.svg",
-    },
-    {
-      label: "Generative Fill",
-      route: "/transformations/add/fill",
+      label: "Generate Image",
+      route: "/image",
       icon: "/assets/icons/stars.svg",
     },
    
-    {
-      label: "Profile",
-      route: "/profile",
-      icon: "/assets/icons/profile.svg",
-    },
+    // {
+    //   label: "Profile",
+    //   route: "/profile",
+    //   icon: "/assets/icons/profile.svg",
+    // },
     {
       label: "Upgrade Plan",
       route: "/credits",
