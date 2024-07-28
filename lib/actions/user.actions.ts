@@ -39,6 +39,7 @@ export async function createUser(user: CreateUserParam) {
 export async function getUserById(id: string) {
   try {
     await connectToDB();
+    console.log(id)
     const user = await User.findOne({ clerkId: id });
     if (!user) throw new Error("User not found");
 
