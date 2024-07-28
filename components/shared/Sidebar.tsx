@@ -5,6 +5,7 @@ import { navLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { UserButton } from '@clerk/nextjs'
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -32,7 +33,6 @@ const Sidebar = () => {
                       height={24}
                       className={`${isActive && 'brightness-200'}`}
                     />
-                    {link.label}
                   </Link>
                 </li>
               )
@@ -60,9 +60,9 @@ const Sidebar = () => {
               )
             })}
             
-              {/* UserButton : <li className="flex-center cursor-pointer gap-2 p-4">
-               <UserButton /> 
-            </li> */}
+           <li className="flex-center items-center cursor-pointer gap-2 p-4">
+               <UserButton afterSignOutUrl="/"/> 
+            </li>
             </ul>
 
 
