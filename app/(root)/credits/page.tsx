@@ -73,12 +73,12 @@ const Credits = () => {
                 </Button>
               ) : (
                 <SignedIn>
-                  <Checkout
+                  {/* <Checkout
                     plan={plan.name}
                     payAmount={plan.price}
                     credits={plan.credits}
                     userId={user._id}
-                  />
+                  /> */}
                 </SignedIn>
               )}
             </li>
