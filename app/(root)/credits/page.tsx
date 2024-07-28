@@ -38,11 +38,10 @@ const Credits = () => {
           {plans.map((plan) => (
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
-               
                 <p className="p-10 mt-2 text-4xl font-semibold">{plan.name}</p>
-                <div style={{display:"flex"}}>
-                <p className="text-4xl text-dark-600">US ${plan.price}</p>
-                <p>Per Month</p>
+                <div style={{ display: "flex" }}>
+                  <p className="text-4xl text-dark-600">US ${plan.price}</p>
+                  <p>Per Month</p>
                 </div>
                 <h4>{plan.credits} Credits</h4>
               </div>
@@ -56,19 +55,26 @@ const Credits = () => {
                   >
                     <Image
                       src={`/assets/icons/${
-                        inclusion.isIncluded ? "check.svg" : "cross.svg"
+                        inclusion.isIncluded
+                          ? "check-circle.svg"
+                          : "not-included.svg"
                       }`}
-                      alt="check"
-                      width={24}
-                      height={24}
+                      alt={inclusion.isIncluded ? "check" : "cross"}
+                      width={inclusion.isIncluded ? 30 : 24} 
+                      height={inclusion.isIncluded ? 30 : 24} 
                     />
+
                     <p className="p-16-regular">{inclusion.label}</p>
                   </li>
                 ))}
               </ul>
 
               {plan.name === "Free" ? (
-                <Button onClick={() => router.push("/")} variant="outline" className="credits-btn">
+                <Button
+                  onClick={() => router.push("/")}
+                  variant="outline"
+                  className="credits-btn"
+                >
                   Get Started For Free
                 </Button>
               ) : (

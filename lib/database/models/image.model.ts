@@ -12,7 +12,11 @@ export interface ImageInterface extends Document {
     processTypeUrl?: string; // Same as above
     config?: object; // Or you can define a more specific type if you know the structure
     prompt?: string;
-    user?: string; // Or string, depending on your setup
+    user: {
+    _id: string;
+    firstName: string;
+    lastName: string;
+  }
     createdAt?: Date;
     updatedAt?: Date;
   }
