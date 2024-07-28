@@ -14,28 +14,14 @@ export const navLinks = [
       route: "/transformations/add/fill",
       icon: "/assets/icons/stars.svg",
     },
-    // {
-    //   label: "Object Remove",
-    //   route: "/transformations/add/remove",
-    //   icon: "/assets/icons/scan.svg",
-    // },
-    // {
-    //   label: "Object Recolor",
-    //   route: "/transformations/add/recolor",
-    //   icon: "/assets/icons/filter.svg",
-    // },
-    // {
-    //   label: "Background Remove",
-    //   route: "/transformations/add/removeBackground",
-    //   icon: "/assets/icons/camera.svg",
-    // },
+   
     {
       label: "Profile",
       route: "/profile",
       icon: "/assets/icons/profile.svg",
     },
     {
-      label: "Buy Credits",
+      label: "Upgrade Plan",
       route: "/credits",
       icon: "/assets/icons/bag.svg",
     },
@@ -45,78 +31,52 @@ export const navLinks = [
     {
       _id: 1,
       name: "Free",
-      icon: "/assets/icons/free-plan.svg",
+     
       price: 0,
-      credits: 20,
+      credits: 10,
       inclusions: [
         {
-          label: "20 Free Credits",
+          label: "10 Free Credits",
           isIncluded: true,
         },
         {
-          label: "Basic Access to Services",
+          label: "Limit Access to Services",
           isIncluded: true,
         },
         {
-          label: "Priority Customer Support",
+          label: "Timely Customer Support",
           isIncluded: false,
         },
-        {
-          label: "Priority Updates",
-          isIncluded: false,
-        },
+     
       ],
     },
     {
       _id: 2,
-      name: "Pro Package",
-      icon: "/assets/icons/pro-plan.svg",
-      price: 40,
-      credits: 120,
+      name: "Pro Plan",
+     
+      price: 39,
+      credits: 150,
       inclusions: [
         {
-          label: "120 Credits",
+          label: "150 Credits",
           isIncluded: true,
         },
         {
-          label: "Full Access to Services",
+          label: "Access to Services",
           isIncluded: true,
         },
         {
-          label: "Priority Customer Support",
+          label: "Timely Customer Support",
           isIncluded: true,
         },
         {
-          label: "Priority Updates",
-          isIncluded: false,
+          label: "...and much more",
+          isIncluded: true,
         },
+       
       ],
     },
-    {
-      _id: 3,
-      name: "Picto Lover",
-      icon: "/assets/icons/picto-plan.svg",
-      price: 199,
-      credits: 2000,
-      inclusions: [
-        {
-          label: "2000 Credits",
-          isIncluded: true,
-        },
-        {
-          label: "Full Access to Services",
-          isIncluded: true,
-        },
-        {
-          label: "Priority Customer Support",
-          isIncluded: true,
-        },
-        {
-          label: "Priority Updates",
-          isIncluded: true,
-        },
-      ],
-    },
+  
   ];
   
   export const transformationTypes = {
