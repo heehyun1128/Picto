@@ -31,7 +31,7 @@ const Sidebar = () => {
                       alt="logo"
                       width={24}
                       height={24}
-                      className={`${isActive && 'brightness-200'}`}
+                      className={`${isActive && 'hidden'}`}
                     />
                     {link.label}
                   </Link>
