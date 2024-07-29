@@ -19,7 +19,7 @@ const Sidebar = () => {
         <nav className="sidebar-nav">
           <SignedIn>
           <ul className="sidebar-nav_elements my-auto">
-            {navLinks.slice(0,6).map((link) => {
+            {navLinks.slice(0,7).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
@@ -40,7 +40,7 @@ const Sidebar = () => {
           </ul>
 
             <ul className="sidebar-nav_elements">
-            {navLinks.slice(6).map((link) => {
+            {navLinks.slice(7).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
