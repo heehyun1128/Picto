@@ -18,7 +18,7 @@ const Sidebar = () => {
 
         <nav className="sidebar-nav">
           <SignedIn>
-          <ul className="sidebar-nav_elements">
+          <ul className="sidebar-nav_elements my-auto">
             {navLinks.slice(0,6).map((link) => {
               const isActive = pathname === link.route;
               return (
@@ -31,9 +31,8 @@ const Sidebar = () => {
                       alt="logo"
                       width={24}
                       height={24}
-                      className={`${isActive && 'hidden'}`}
+                      className={`${isActive && 'brightness-200'}`}
                     />
-                    {link.label}
                   </Link>
                 </li>
               )
@@ -55,26 +54,25 @@ const Sidebar = () => {
                       height={24}
                       className={`${isActive && 'brightness-200'}`}
                     />
-                    {link.label}
                   </Link>
                 </li>
               )
             })}
             
       
-          <li className="flex-center cursor-pointer gap-2 p-4">
+          <li className="flex-center cursor-pointer gap-2 p-5">
             <UserButton 
               afterSignOutUrl="/" 
               appearance={{
                 elements: {
                   avatarBox: "h-10 w-10",
-                  userButtonAvatarBox: "h-10 w-10"
+                  userButtonAvatarBox: "h-12 w-12"
                 },
                 variables: {
                   colorPrimary: "#4EF4D8"
                 }
               }}
-              showName={true}
+              showName={false}
             />
           </li>
             </ul>
