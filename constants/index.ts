@@ -5,16 +5,31 @@ export const navLinks = [
       icon: "/assets/icons/home.svg",
     },
     {
+      label: "Image Generator",
+      route: "/image",
+      icon: "/assets/icons/gpt.svg",
+    },
+    {
       label: "Image Restore",
       route: "/transformations/add/restore",
       icon: "/assets/icons/image.svg",
     },
     {
-      label: "Generative Fill",
+      label: "Magic Fill",
       route: "/transformations/add/fill",
       icon: "/assets/icons/stars.svg",
     },
    
+    // {
+    //   label: "Object Recolor",
+    //   route: "/transformations/add/recolor",
+    //   icon: "/assets/icons/filter.svg",
+    // },
+    {
+      label: "Background Remove",
+      route: "/transformations/add/removeBackground",
+      icon: "/assets/icons/camera.svg",
+    },
     {
       label: "Profile",
       route: "/profile",
@@ -96,7 +111,7 @@ export const navLinks = [
     },
     fill: {
       type: "fill",
-      title: "Generative Fill",
+      title: "Magic Fill",
       subTitle: "Enhance an image's dimensions using AI outpainting",
       config: { fillBackground: true },
       icon: "stars.svg",
@@ -150,4 +165,4 @@ export const navLinks = [
     publicId: "",
   };
   
-  export const creditFee = -1;
+  export const availableCredit = -1;

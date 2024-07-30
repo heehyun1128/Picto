@@ -22,7 +22,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
     <div className="flex flex-col gap-4">
       <div className="flex-between">
         <h3 className="h3-bold text-dark-600">
-          Transformed
+        Picto Renders
         </h3>
 
         {hasDownload && (
@@ -76,7 +76,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
         </div>
       ): (
         <div className="transformed-placeholder">
-          Transformed Image
+          Picto Renders
         </div>
       )}
     </div>

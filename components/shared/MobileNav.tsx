@@ -20,8 +20,8 @@ const MobileNav = () => {
       />
     </Link>
     <nav className="flex gap-2">
-       <SignedIn>
-            <UserButton afterSignOutUrl="/"/> 
+        <SignedIn>
+            <UserButton afterSignOutUrl="/" /> 
         <Sheet>
         <SheetTrigger>
             <Image 
@@ -40,8 +40,7 @@ const MobileNav = () => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`${isActive && 
-                    'gradient-text'} p-18 flex whitespace-nowrap text-dark-700
-                    
+                    'gradient-text'} p-18 flex whitespace-nowrap text-dark-700  
                     }
                 }`}>
                   <Link className="sidebar-link cursor-pointer" href={link.route}>
@@ -61,7 +60,7 @@ const MobileNav = () => {
            </>
         </SheetContent>
         </Sheet>
-        </SignedIn> 
+        </SignedIn>
 
          <SignedOut>
          <Button asChild className='button bg-purple-gradient bg-cover text-dark-700 hover:text-white'>
@@ -69,7 +68,7 @@ const MobileNav = () => {
               Sign In
             </Link>
            </Button>
-           </SignedOut>
+          </SignedOut>
 
     </nav>
    </header>

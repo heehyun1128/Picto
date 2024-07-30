@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { SignedIn, auth, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -10,27 +10,12 @@ import Checkout from "@/components/shared/Checkout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const Credits = () => {
-  const [user, setUser] = useState(null);
-  const { userId } = useAuth();
-  const router = useRouter();
+const Credits = async () => {
+  const { userId } = auth();
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      if (!userId) {
-        redirect("/sign-in");
-      } else {
-        const user = await getUserById(userId);
-        setUser(user);
-      }
-    };
-    getUserInfo();
-  }, []);
+  if (!userId) redirect("/sign-in");
 
-  if (!user) {
-    return <div>Loading...</div>; // Or any loading indicator you prefer
-  }
-
+  const user = await getUserById(userId);
   return (
     <>
       <section>
@@ -55,15 +40,12 @@ const Credits = () => {
                   >
                     <Image
                       src={`/assets/icons/${
-                        inclusion.isIncluded
-                          ? "check-circle.svg"
-                          : "not-included.svg"
+                        inclusion.isIncluded ? "check.svg" : "cross.svg"
                       }`}
-                      alt={inclusion.isIncluded ? "check" : "cross"}
-                      width={inclusion.isIncluded ? 30 : 24} 
-                      height={inclusion.isIncluded ? 30 : 24} 
+                      alt="check"
+                      width={24}
+                      height={24}
                     />
-
                     <p className="p-16-regular">{inclusion.label}</p>
                   </li>
                 ))}
@@ -71,11 +53,11 @@ const Credits = () => {
 
               {plan.name === "Free" ? (
                 <Button
-                  onClick={() => router.push("/")}
+                  
                   variant="outline"
                   className="credits-btn"
                 >
-                  Get Started For Free
+                  <a href="/">Get Started For Free</a>
                 </Button>
               ) : (
                 <SignedIn>
