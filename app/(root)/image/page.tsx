@@ -88,8 +88,8 @@ const ImagePage = () => {
     <div>
       {/* form/input fields */}
       <div className="px-4 lg:px-8">
-        <div className="flex justify-center mb-10">
-          <h1 className="text-4xl">Picto AI Image Generator</h1>
+        <div className="flex justify-start mb-10">
+          <h1 className="h2-bold text-dark-600">Picto AI Image Generator</h1>
         </div>
         <div style={{height:"75vh"}}  className="flex justify-between align-middle">
           {/* <div> */}

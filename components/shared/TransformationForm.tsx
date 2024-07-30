@@ -320,19 +320,23 @@ const TransformationForm = ({
           <div className="flex flex-col gap-4">
             <Button
               type="button"
-              className="submit-button capitalize"
+              className="submit-button capitalize text-dark-700"
               disabled={isTransforming || newTransformation === null}
               onClick={onTransformHandler}
+              // style={{color:"black"}}
             >
               {isTransforming ? "Transforming..." : "Apply Transformation"}
             </Button>
+            <div style={{display:"flex",justifyContent:"center"}}>
             <a
               href={`${image?.url}`}
               download={image}
               className="submit-button capitalize"
+             style={{display:"flex", justifyContent:"center",alignItems:"center",textAlign:"center",width:"100%"}}
             >
               {isSubmitting ? "Submitting..." : "Save Image"}
             </a>
+            </div>
           </div>
         </form>
       </Form>
