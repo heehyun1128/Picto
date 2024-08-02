@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { navLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
-import { UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -18,8 +18,8 @@ const Sidebar = () => {
 
         <nav className="sidebar-nav">
           <SignedIn>
-          <ul className="sidebar-nav_elements">
-            {navLinks.slice(0,3).map((link) => {
+          <ul className="sidebar-nav_elements my-auto">
+            {navLinks.slice(0,7).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
@@ -40,7 +40,7 @@ const Sidebar = () => {
           </ul>
 
             <ul className="sidebar-nav_elements">
-            {navLinks.slice(3).map((link) => {
+            {navLinks.slice(7).map((link) => {
               const isActive = pathname === link.route;
               return (
                 <li key={link.route} className={`sidebar-nav_element group ${
@@ -54,15 +54,27 @@ const Sidebar = () => {
                       height={24}
                       className={`${isActive && 'brightness-200'}`}
                     />
-                    {link.label}
                   </Link>
                 </li>
               )
             })}
             
-           <li className="flex-center items-center cursor-pointer gap-2 p-4">
-               <UserButton afterSignOutUrl="/"/> 
-            </li>
+      
+          <li className="flex-center cursor-pointer gap-2 p-5">
+            <UserButton 
+              afterSignOutUrl="/" 
+              appearance={{
+                elements: {
+                  avatarBox: "h-10 w-10",
+                  userButtonAvatarBox: "h-12 w-12"
+                },
+                variables: {
+                  colorPrimary: "#4EF4D8"
+                }
+              }}
+              showName={false}
+            />
+          </li>
             </ul>
 
 

@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { SignedIn, auth, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -10,27 +10,12 @@ import Checkout from "@/components/shared/Checkout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const Credits = () => {
-  const [user, setUser] = useState(null);
-  const { userId } = useAuth();
-  const router = useRouter();
+const Credits = async () => {
+  const { userId } = auth();
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      if (!userId) {
-        redirect("/sign-in");
-      } else {
-        const user = await getUserById(userId);
-        setUser(user);
-      }
-    };
-    getUserInfo();
-  }, []);
+  if (!userId) redirect("/sign-in");
 
-  if (!user) {
-    return <div>Loading...</div>; // Or any loading indicator you prefer
-  }
-
+  const user = await getUserById(userId);
   return (
     <>
       <section>
@@ -38,11 +23,10 @@ const Credits = () => {
           {plans.map((plan) => (
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
-               
                 <p className="p-10 mt-2 text-4xl font-semibold">{plan.name}</p>
-                <div style={{display:"flex"}}>
-                <p className="text-4xl text-dark-600">US ${plan.price}</p>
-                <p>Per Month</p>
+                <div style={{ display: "flex" }}>
+                  <p className="text-4xl text-dark-600">US ${plan.price}</p>
+                  <p>Per Month</p>
                 </div>
                 <h4>{plan.credits} Credits</h4>
               </div>
@@ -68,8 +52,12 @@ const Credits = () => {
               </ul>
 
               {plan.name === "Free" ? (
-                <Button onClick={() => router.push("/")} variant="outline" className="credits-btn">
-                  Get Started For Free
+                <Button
+                  
+                  variant="outline"
+                  className="credits-btn"
+                >
+                  <a href="/">Get Started For Free</a>
                 </Button>
               ) : (
                 <SignedIn>

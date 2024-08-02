@@ -88,8 +88,8 @@ const ImagePage = () => {
     <div>
       {/* form/input fields */}
       <div className="px-4 lg:px-8">
-        <div className="flex justify-center mb-10">
-          <h1 className="text-4xl">Picto AI Image Generator</h1>
+        <div className="flex justify-start mb-10">
+          <h1 className="h2-bold text-dark-600">Picto AI Image Generator</h1>
         </div>
         <div style={{height:"75vh"}}  className="flex justify-between align-middle">
           {/* <div> */}
@@ -107,7 +107,7 @@ const ImagePage = () => {
                       <Input
                         disabled={isLoading}
                         placeholder="Describe the image to generate..."
-                        className="border-1 outline-dashed focus-visible:ring-0 focus-visible:ring-transparent p-2"
+                        className="border-dotted  focus-visible:ring-0 focus-visible:ring-transparent p-2"
                         {...field}
                       />
                     </FormControl>
@@ -208,7 +208,7 @@ const ImagePage = () => {
                   </Card>
                 ))
               ) : (
-                <div style={{border:"4px dotted #4EF4D8", borderRadius:"1rem"}} className="w-full h-full border-dotted border-2  flex items-center justify-center">
+                <div style={{border:"1px dotted #4EF4D8", borderRadius:"1rem", minWidth:"40vw"}} className="w-full h-full border-dotted border-2  flex items-center justify-center">
                   <span>No images available</span>
                 </div>
               )}
